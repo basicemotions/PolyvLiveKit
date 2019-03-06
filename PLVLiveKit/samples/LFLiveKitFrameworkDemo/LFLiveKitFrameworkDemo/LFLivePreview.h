@@ -10,4 +10,6 @@
 
 @interface LFLivePreview : UIView
 
+@property (nonatomic, copy) NSString *url;
+
 @end

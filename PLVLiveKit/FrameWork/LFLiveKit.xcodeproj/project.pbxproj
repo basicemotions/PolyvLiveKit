@@ -610,11 +610,6 @@
 		8495F6A01DB8F27000542124 /* LFStreamRtmpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B5B71D768B6E00752B56 /* LFStreamRtmpSocket.m */; };
 		8495F6A11DB8F27000542124 /* NSMutableArray+LFAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B5BA1D768B6E00752B56 /* NSMutableArray+LFAdd.m */; };
 		84D0036F1DB8F88F00560583 /* LFNALUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B58F1D768B6E00752B56 /* LFNALUnit.cpp */; };
-		84D8B4BF1D757EB800752B56 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8B4BE1D757EB800752B56 /* VideoToolbox.framework */; };
-		84D8B4C11D757EBE00752B56 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8B4C01D757EBE00752B56 /* AudioToolbox.framework */; };
-		84D8B4C31D757EC400752B56 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8B4C21D757EC400752B56 /* AVFoundation.framework */; };
-		84D8B4C51D757EC800752B56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8B4C41D757EC800752B56 /* Foundation.framework */; };
-		84D8B4C71D757ECC00752B56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8B4C61D757ECC00752B56 /* UIKit.framework */; };
 		84D8B5BB1D768B6E00752B56 /* LFAudioCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D8B5851D768B6E00752B56 /* LFAudioCapture.h */; };
 		84D8B5BC1D768B6E00752B56 /* LFAudioCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B5861D768B6E00752B56 /* LFAudioCapture.m */; };
 		84D8B5BD1D768B6E00752B56 /* LFVideoCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D8B5871D768B6E00752B56 /* LFVideoCapture.h */; };
@@ -676,6 +671,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6701A26F222F7B6400CE036E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6701A270222F7B6400CE036E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6701A271222F7B6400CE036E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6701A272222F7B6500CE036E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6701A273222F7B6500CE036E /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		6701A274222F7B6500CE036E /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		6701A275222F7B6500CE036E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84358E871DD1FEB500811FC7 /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		84358E881DD1FEB500811FC7 /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
 		84358E891DD1FEB500811FC7 /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage.h; sourceTree = "<group>"; };
@@ -1042,13 +1044,6 @@
 		8495F66D1DB8F14600542124 /* LFLiveKitFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLiveKitFramework.h; sourceTree = "<group>"; };
 		8495F66E1DB8F14600542124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D8B3901D7574D600752B56 /* LFLiveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LFLiveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84D8B4BE1D757EB800752B56 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		84D8B4C01D757EBE00752B56 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		84D8B4C21D757EC400752B56 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		84D8B4C41D757EC800752B56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		84D8B4C61D757ECC00752B56 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		84D8B4C81D757ED100752B56 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
-		84D8B4CA1D757ED600752B56 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		84D8B5851D768B6E00752B56 /* LFAudioCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAudioCapture.h; sourceTree = "<group>"; };
 		84D8B5861D768B6E00752B56 /* LFAudioCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAudioCapture.m; sourceTree = "<group>"; };
 		84D8B5871D768B6E00752B56 /* LFVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoCapture.h; sourceTree = "<group>"; };
@@ -1111,11 +1106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D8B4C71D757ECC00752B56 /* UIKit.framework in Frameworks */,
-				84D8B4C51D757EC800752B56 /* Foundation.framework in Frameworks */,
-				84D8B4C31D757EC400752B56 /* AVFoundation.framework in Frameworks */,
-				84D8B4C11D757EBE00752B56 /* AudioToolbox.framework in Frameworks */,
-				84D8B4BF1D757EB800752B56 /* VideoToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1536,13 +1526,6 @@
 			isa = PBXGroup;
 			children = (
 				84D8B5831D768B6E00752B56 /* LFLiveKit */,
-				84D8B4CA1D757ED600752B56 /* libz.tbd */,
-				84D8B4C81D757ED100752B56 /* libstdc++.tbd */,
-				84D8B4C61D757ECC00752B56 /* UIKit.framework */,
-				84D8B4C41D757EC800752B56 /* Foundation.framework */,
-				84D8B4C21D757EC400752B56 /* AVFoundation.framework */,
-				84D8B4C01D757EBE00752B56 /* AudioToolbox.framework */,
-				84D8B4BE1D757EB800752B56 /* VideoToolbox.framework */,
 				8495F66C1DB8F14600542124 /* LFLiveKitFramework */,
 				84D8B3911D7574D600752B56 /* Products */,
 				9ABACAFFC334034AA0115426 /* Frameworks */,
@@ -1674,6 +1657,13 @@
 		9ABACAFFC334034AA0115426 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6701A26F222F7B6400CE036E /* libz.tbd */,
+				6701A273222F7B6500CE036E /* libstdc++.tbd */,
+				6701A275222F7B6500CE036E /* UIKit.framework */,
+				6701A271222F7B6400CE036E /* Foundation.framework */,
+				6701A272222F7B6500CE036E /* AVFoundation.framework */,
+				6701A270222F7B6400CE036E /* AudioToolbox.framework */,
+				6701A274222F7B6500CE036E /* VideoToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2649,7 +2639,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youku.LFLiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2673,7 +2663,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youku.LFLiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

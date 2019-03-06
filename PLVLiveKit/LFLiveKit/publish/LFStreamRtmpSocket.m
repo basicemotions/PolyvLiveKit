@@ -26,7 +26,8 @@ static const NSInteger RetryTimesMargin = 3;
 #define SAVC(x)    static const AVal av_ ## x = AVC(#x)
 
 static const AVal av_setDataFrame = AVC("@setDataFrame");
-static const AVal av_SDKVersion = AVC("PLVLiveKit 1.2.0");
+static const AVal av_SDKVersion = AVC("PLVLiveKit 1.2.1");
+
 SAVC(onMetaData);
 SAVC(duration);
 SAVC(width);
@@ -41,6 +42,7 @@ SAVC(audiosamplesize);
 //SAVC(audiochannels);
 SAVC(stereo);
 SAVC(encoder);
+SAVC(appInfo);
 //SAVC(av_stereo);
 SAVC(fileSize);
 SAVC(avc1);
@@ -338,7 +340,12 @@ Failed:
     enc = AMF_EncodeNamedNumber(enc, pend, &av_audiosamplesize, 16.0);
     enc = AMF_EncodeNamedBoolean(enc, pend, &av_stereo, _stream.audioConfiguration.numberOfChannels == 2);
 
-    // sdk version
+    // sdk/app version info
+    char *appVersionInfo = _stream.appVersionInfo.UTF8String;
+    if (appVersionInfo) {
+        AVal av_AppVersion = {appVersionInfo, strlen(appVersionInfo)};
+        enc = AMF_EncodeNamedString(enc, pend, &av_appInfo, &av_AppVersion);
+    }
     enc = AMF_EncodeNamedString(enc, pend, &av_encoder, &av_SDKVersion);
 
     *enc++ = 0;

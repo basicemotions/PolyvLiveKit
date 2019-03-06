@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		843591661DD201D200811FC7 /* LFLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495F6CE1DB8F37E00542124 /* LFLiveKit.framework */; };
+		6701A277222F7BA400CE036E /* PLVLiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6701A276222F7BA400CE036E /* PLVLiveAPI.framework */; };
+		6701A280222FA4FA00CE036E /* LFLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8495F6CE1DB8F37E00542124 /* LFLiveKit.framework */; };
 		8495F6B01DB8F37300542124 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8495F6AF1DB8F37300542124 /* main.m */; };
 		8495F6B31DB8F37300542124 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8495F6B21DB8F37300542124 /* AppDelegate.m */; };
 		8495F6B61DB8F37300542124 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8495F6B51DB8F37300542124 /* FirstViewController.m */; };
@@ -36,12 +37,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		843591641DD201CC00811FC7 /* PBXContainerItemProxy */ = {
+		6701A281222FA56000CE036E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8495F6C81DB8F37E00542124 /* LFLiveKit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8495F66A1DB8F14600542124;
-			remoteInfo = LFLiveKitFramework;
+			remoteGlobalIDString = 84D8B38F1D7574D600752B56;
+			remoteInfo = LFLiveKit;
 		};
 		8495F6CD1DB8F37E00542124 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6701A276222F7BA400CE036E /* PLVLiveAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLVLiveAPI.framework; sourceTree = "<group>"; };
 		843591671DD204FA00811FC7 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		8495F6AB1DB8F37300542124 /* LFLiveKitFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFLiveKitFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8495F6AF1DB8F37300542124 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,10 +108,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				843591661DD201D200811FC7 /* LFLiveKit.framework in Frameworks */,
+				6701A280222FA4FA00CE036E /* LFLiveKit.framework in Frameworks */,
 				84D003731DB8F8C200560583 /* Foundation.framework in Frameworks */,
 				84D003711DB8F8BD00560583 /* UIKit.framework in Frameworks */,
 				84D0036E1DB8F86D00560583 /* AVFoundation.framework in Frameworks */,
+				6701A277222F7BA400CE036E /* PLVLiveAPI.framework in Frameworks */,
 				84D0036C1DB8F86700560583 /* AudioToolbox.framework in Frameworks */,
 				84D0036A1DB8F85E00560583 /* VideoToolbox.framework in Frameworks */,
 				84D003641DB8F83400560583 /* libstdc++.tbd in Frameworks */,
@@ -179,6 +182,7 @@
 		8495F6D41DB8F49800542124 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6701A276222F7BA400CE036E /* PLVLiveAPI.framework */,
 				843591671DD204FA00811FC7 /* libstdc++.6.0.9.tbd */,
 				84D003721DB8F8C200560583 /* Foundation.framework */,
 				84D003701DB8F8BD00560583 /* UIKit.framework */,
@@ -235,7 +239,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				843591651DD201CC00811FC7 /* PBXTargetDependency */,
+				6701A282222FA56000CE036E /* PBXTargetDependency */,
 			);
 			name = LFLiveKitFrameworkDemo;
 			productName = LFLiveKitFrameworkDemo;
@@ -253,7 +257,7 @@
 				TargetAttributes = {
 					8495F6AA1DB8F37300542124 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = G497YX6CBT;
+						DevelopmentTeam = 8BMZBNN3Q5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -339,10 +343,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		843591651DD201CC00811FC7 /* PBXTargetDependency */ = {
+		6701A282222FA56000CE036E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = LFLiveKitFramework;
-			targetProxy = 843591641DD201CC00811FC7 /* PBXContainerItemProxy */;
+			name = LFLiveKit;
+			targetProxy = 6701A281222FA56000CE036E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -458,8 +462,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G497YX6CBT;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				DEVELOPMENT_TEAM = 8BMZBNN3Q5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = LFLiveKitFrameworkDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -468,7 +475,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youku.LFLiveKitFrameworkDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polyv.LFLiveKitFrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -477,8 +484,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G497YX6CBT;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				DEVELOPMENT_TEAM = 8BMZBNN3Q5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = LFLiveKitFrameworkDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -487,7 +497,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youku.LFLiveKitFrameworkDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polyv.LFLiveKitFrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
