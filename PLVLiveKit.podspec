@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "PLVLiveKit"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.summary      = "Polyv iOS streamer."
 
   # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   #s.description  = <<-DESC
   #                 DESC
 
-  s.homepage     = "http://git.polyv.net/ios/LFLiveKit"
+  s.homepage     = "http://git.polyv.net/ios/PolyvLiveKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://git.polyv.net/ios/LFLiveKit.git", :tag => "#{s.version}" }
+  s.source       = { :git => "http://git.polyv.net/ios/PolyvLiveKit", :tag => "#{s.version}" }
   
   
 
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "PLVLiveKit/LFLiveKit/**/*.{h,m,mm,cpp,c}"
-  s.public_header_files = ['LFLiveKit/*.h', 'LFLiveKit/objects/*.h', 'LFLiveKit/configuration/*.h']
+  s.public_header_files = ['PLVLiveKit/LFLiveKit/*.h', 'PLVLiveKit/LFLiveKit/objects/*.h', 'PLVLiveKit/LFLiveKit/configuration/*.h']
   # s.exclude_files = "Classes/Exclude"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

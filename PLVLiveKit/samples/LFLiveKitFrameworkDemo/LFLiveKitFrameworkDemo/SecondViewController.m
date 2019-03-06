@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     __weak typeof(self)weakSelf = self;
-    [PLVLiveAPI loadPushInfoWithChannelId:103117 password:@"66" completion:^(PLVPushChannel *channel, NSString *rtmpUrl) {
+    [PLVLiveAPI loadPushInfoWithChannelId:103117 password:@"" completion:^(PLVPushChannel *channel, NSString *rtmpUrl) {
         LFLivePreview *preview = [LFLivePreview alloc];
         preview.url = rtmpUrl;
         [weakSelf.view addSubview:[preview initWithFrame:weakSelf.view.bounds]];
