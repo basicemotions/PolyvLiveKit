@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PLVLiveKit"
-  s.version      = "1.2.1"
+  s.version      = "1.2.2"
   s.summary      = "Polyv iOS streamer."
 
   s.homepage     = "http://git.polyv.net/ios/PolyvLiveKit"
@@ -75,7 +75,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'coder' do |ss|
   	# public_header_files 中不可添加H264下的.h文件，C++ header LFNALUnit.h 编译不过
-    ss.source_files  = ["PLVLiveKit/LFLiveKit/coder/*.{h,m,mm}", "PLVLiveKit/LFLiveKit/coder/H264/*.{h,m,cpp}"]
+  	ss.source_files  = ["PLVLiveKit/LFLiveKit/coder/*.{h,m,mm}", "PLVLiveKit/LFLiveKit/coder/H264/*.{h,m,mm,cpp}"]
     ss.public_header_files  = "PLVLiveKit/LFLiveKit/coder/*.h"
     # ss.source_files  = ["PLVLiveKit/LFLiveKit/coder/**/*.{h,m,mm,cpp}", 'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h']
     # ss.public_header_files  = ["PLVLiveKit/LFLiveKit/coder/**/*.h", 'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h']
