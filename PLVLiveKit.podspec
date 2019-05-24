@@ -8,124 +8,87 @@
 
 Pod::Spec.new do |s|
 
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-
   s.name         = "PLVLiveKit"
   s.version      = "1.2.1"
   s.summary      = "Polyv iOS streamer."
 
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
-  #s.description  = <<-DESC
-  #                 DESC
-
   s.homepage     = "http://git.polyv.net/ios/PolyvLiveKit"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
-
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
-
-  # s.license      = "MIT (example)"
   s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.author       = { "ftao" => "fft1026@163.com" }
 
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you'd rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
-
-  s.author             = { "ftao" => "fft1026@163.com" }
-  # Or just: s.author    = "ftao"
-  # s.authors            = { "ftao" => "fft1026@163.com" }
-  # s.social_media_url   = "http://twitter.com/ftao"
-
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
-
-  # s.platform     = :ios
   s.platform     = :ios, "8.0"
-
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
-
-
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
 
   s.source       = { :git => "http://git.polyv.net/ios/PolyvLiveKit", :tag => "#{s.version}" }
   
+  s.source_files  =  "PLVLiveKit/LFLiveKit/LFLive*.{h,m}"
+  s.public_header_files = "PLVLiveKit/LFLiveKit/*.h"
   
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
-
-  s.source_files  = "PLVLiveKit/LFLiveKit/**/*.{h,m,mm,cpp,c}"
-  s.public_header_files = ['PLVLiveKit/LFLiveKit/*.h', 'PLVLiveKit/LFLiveKit/objects/*.h', 'PLVLiveKit/LFLiveKit/configuration/*.h']
-  # s.exclude_files = "Classes/Exclude"
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
+  # origin format
+  # s.public_header_files = ['PLVLiveKit/LFLiveKit/*.h', 'PLVLiveKit/LFLiveKit/objects/*.h', 'PLVLiveKit/LFLiveKit/configuration/*.h']
+  # s.source_files  = "PLVLiveKit/LFLiveKit/**/*.{h,m,mm,cpp,c}"
 
   s.frameworks = "VideoToolbox", "AudioToolbox","AVFoundation","Foundation","UIKit"
   s.libraries = "c++", "z"
 
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
   s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+
+  # ---------- Vendor（添加PLVHeader.h文件处理pod lib lint验证不通过问题）
+  s.subspec 'GPUImage' do |ss|
+  	# except GPUImageFramework.h file
+    ss.source_files  = ["PLVLiveKit/LFLiveKit/Vendor/GPUImage/*.{h,m}","PLVLiveKit/LFLiveKit/Vendor/GPUImage/iOS/*.{h,m}",'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h']
+    ss.public_header_files = ["PLVLiveKit/LFLiveKit/Vendor/GPUImage/*.h", "PLVLiveKit/LFLiveKit/Vendor/GPUImage/iOS/*.h", 'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h']
+  end
+
+  s.subspec 'pili-librtmp' do |ss|
+    ss.source_files  = ["PLVLiveKit/LFLiveKit/Vendor/pili-librtmp/*", 'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h']
+    ss.public_header_files = 'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h'
+  end
+
+  # ---------- Subfiles
+  s.subspec 'configuration' do |ss|
+    ss.source_files  = "PLVLiveKit/LFLiveKit/configuration/*"
+    ss.public_header_files = "PLVLiveKit/LFLiveKit/configuration/*.h"
+  end
+
+  s.subspec 'objects' do |ss|
+    ss.source_files  = "PLVLiveKit/LFLiveKit/objects/*"
+    ss.public_header_files = "PLVLiveKit/LFLiveKit/objects/*.h"
+
+    ss.dependency 'PLVLiveKit/configuration'
+  end
+
+   s.subspec 'filter' do |ss|
+   	ss.dependency 'PLVLiveKit/objects'
+    ss.dependency 'PLVLiveKit/GPUImage'
+
+    ss.source_files  = "PLVLiveKit/LFLiveKit/filter/*"
+    ss.public_header_files = "PLVLiveKit/LFLiveKit/filter/*.h"
+  end
+
+  s.subspec 'capture' do |ss|
+    ss.source_files  = "PLVLiveKit/LFLiveKit/capture/*"
+    ss.public_header_files = "PLVLiveKit/LFLiveKit/capture/*.h"
+    
+    ss.dependency 'PLVLiveKit/filter'
+  end
+
+  s.subspec 'coder' do |ss|
+  	# public_header_files 中不可添加H264下的.h文件，C++ header LFNALUnit.h 编译不过
+    ss.source_files  = ["PLVLiveKit/LFLiveKit/coder/*.{h,m,mm}", "PLVLiveKit/LFLiveKit/coder/H264/*.{h,m,cpp}"]
+    ss.public_header_files  = "PLVLiveKit/LFLiveKit/coder/*.h"
+    # ss.source_files  = ["PLVLiveKit/LFLiveKit/coder/**/*.{h,m,mm,cpp}", 'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h']
+    # ss.public_header_files  = ["PLVLiveKit/LFLiveKit/coder/**/*.h", 'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h']
+    
+    ss.dependency 'PLVLiveKit/objects' 
+  end
+
+  s.subspec 'publish' do |ss|
+    ss.source_files  = "PLVLiveKit/LFLiveKit/publish/*"
+    ss.public_header_files  = "PLVLiveKit/LFLiveKit/publish/*.h"
+
+    ss.dependency 'PLVLiveKit/objects'
+    ss.dependency 'PLVLiveKit/pili-librtmp'
+  end
 
 end

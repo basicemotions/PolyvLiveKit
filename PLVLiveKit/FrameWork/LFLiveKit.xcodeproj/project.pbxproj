@@ -678,6 +678,7 @@
 		6701A273222F7B6500CE036E /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		6701A274222F7B6500CE036E /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		6701A275222F7B6500CE036E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		677D26A022969BCC001A3ED7 /* PLVHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLVHeader.h; sourceTree = "<group>"; };
 		84358E871DD1FEB500811FC7 /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		84358E881DD1FEB500811FC7 /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
 		84358E891DD1FEB500811FC7 /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage.h; sourceTree = "<group>"; };
@@ -1117,6 +1118,7 @@
 			children = (
 				84358E861DD1FEB500811FC7 /* GPUImage */,
 				84358FE31DD1FEB600811FC7 /* pili-librtmp */,
+				677D26A022969BCC001A3ED7 /* PLVHeader.h */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -1575,13 +1577,13 @@
 			children = (
 				84D8B58A1D768B6E00752B56 /* H264 */,
 				84D8B5931D768B6E00752B56 /* LFAudioEncoding.h */,
+				84D8B59A1D768B6E00752B56 /* LFVideoEncoding.h */,
 				84D8B5941D768B6E00752B56 /* LFH264VideoEncoder.h */,
 				84D8B5951D768B6E00752B56 /* LFH264VideoEncoder.mm */,
 				84D8B5961D768B6E00752B56 /* LFHardwareAudioEncoder.h */,
 				84D8B5971D768B6E00752B56 /* LFHardwareAudioEncoder.m */,
 				84D8B5981D768B6E00752B56 /* LFHardwareVideoEncoder.h */,
 				84D8B5991D768B6E00752B56 /* LFHardwareVideoEncoder.m */,
-				84D8B59A1D768B6E00752B56 /* LFVideoEncoding.h */,
 			);
 			path = coder;
 			sourceTree = "<group>";
@@ -1589,12 +1591,12 @@
 		84D8B58A1D768B6E00752B56 /* H264 */ = {
 			isa = PBXGroup;
 			children = (
-				84D8B58B1D768B6E00752B56 /* LFAVEncoder.h */,
-				84D8B58C1D768B6E00752B56 /* LFAVEncoder.mm */,
+				84D8B5901D768B6E00752B56 /* LFNALUnit.h */,
+				84D8B58F1D768B6E00752B56 /* LFNALUnit.cpp */,
 				84D8B58D1D768B6E00752B56 /* LFMP4Atom.h */,
 				84D8B58E1D768B6E00752B56 /* LFMP4Atom.m */,
-				84D8B58F1D768B6E00752B56 /* LFNALUnit.cpp */,
-				84D8B5901D768B6E00752B56 /* LFNALUnit.h */,
+				84D8B58B1D768B6E00752B56 /* LFAVEncoder.h */,
+				84D8B58C1D768B6E00752B56 /* LFAVEncoder.mm */,
 				84D8B5911D768B6E00752B56 /* LFVideoEncoder.h */,
 				84D8B5921D768B6E00752B56 /* LFVideoEncoder.m */,
 			);
@@ -1988,6 +1990,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 84D8B3861D7574D600752B56;
