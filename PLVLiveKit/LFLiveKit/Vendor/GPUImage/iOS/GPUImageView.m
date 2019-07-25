@@ -230,11 +230,18 @@
 #pragma mark -
 #pragma mark Handling fill mode
 
+// make sure be performed on main thread.
 - (void)recalculateViewGeometry;
 {
+    if (![[NSThread currentThread] isMainThread]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self recalculateViewGeometry];
+        });
+        return;
+    }
+    
     runSynchronouslyOnVideoProcessingQueue(^{
         CGFloat heightScaling, widthScaling;
-        
         CGSize currentViewSize = self.bounds.size;
         
         //    CGFloat imageAspectRatio = inputImageSize.width / inputImageSize.height;
