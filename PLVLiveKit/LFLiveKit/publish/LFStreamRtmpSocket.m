@@ -138,6 +138,12 @@ SAVC(mp4a);
         [self.delegate socketStatus:self status:LFLiveStop];
     }
     if (_rtmp != NULL) {
+        // add by ftao, 200518, set _error type of stopping live.
+        char *msg = "stop live.";
+        RTMPError_Alloc(&_error, strlen(msg));
+        _error.code = 1;
+        strcpy(_error.message, msg);
+        
         PILI_RTMP_Close(_rtmp, &_error);
         PILI_RTMP_Free(_rtmp);
         _rtmp = NULL;
@@ -491,6 +497,10 @@ Failed:
 // 断线重连
 - (void)reconnect {
     dispatch_async(self.rtmpSendQueue, ^{
+        // add by ftao, 200518, avoid performing this function after calling the _stop function.
+        if (self->_rtmp == NULL) {
+            return;
+        }
         if (self.retryTimes4netWorkBreaken++ < self.reconnectCount && !self.isReconnecting) {
             self.isConnected = NO;
             self.isConnecting = NO;
