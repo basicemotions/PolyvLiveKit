@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PLVLiveKit"
-  s.version      = "1.2.3"
+  s.version      = "1.2.4"
   s.summary      = "Polyv iOS streamer."
 
   s.homepage     = "http://git.polyv.net/ios/PolyvLiveKit"
