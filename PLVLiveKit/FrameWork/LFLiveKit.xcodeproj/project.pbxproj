@@ -1546,14 +1546,13 @@
 		84D8B5831D768B6E00752B56 /* LFLiveKit */ = {
 			isa = PBXGroup;
 			children = (
-				84D8B5841D768B6E00752B56 /* capture */,
-				84D8B5891D768B6E00752B56 /* coder */,
-				84D8B59B1D768B6E00752B56 /* configuration */,
-				84D8B5A01D768B6E00752B56 /* filter */,
 				84D8B5A51D768B6E00752B56 /* LFLiveKit.h */,
 				84D8B5A61D768B6E00752B56 /* LFLiveSession.h */,
 				84D8B5A71D768B6E00752B56 /* LFLiveSession.m */,
+				84D8B59B1D768B6E00752B56 /* configuration */,
+				84D8B5841D768B6E00752B56 /* capture */,
 				84D8B5A81D768B6E00752B56 /* objects */,
+				84D8B5891D768B6E00752B56 /* coder */,
 				84D8B5B31D768B6E00752B56 /* publish */,
 				84358E851DD1FEB500811FC7 /* Vendor */,
 			);
@@ -1564,6 +1563,7 @@
 		84D8B5841D768B6E00752B56 /* capture */ = {
 			isa = PBXGroup;
 			children = (
+				84D8B5A01D768B6E00752B56 /* filter */,
 				84D8B5851D768B6E00752B56 /* LFAudioCapture.h */,
 				84D8B5861D768B6E00752B56 /* LFAudioCapture.m */,
 				84D8B5871D768B6E00752B56 /* LFVideoCapture.h */,
@@ -1645,11 +1645,11 @@
 		84D8B5B31D768B6E00752B56 /* publish */ = {
 			isa = PBXGroup;
 			children = (
+				84D8B5B81D768B6E00752B56 /* LFStreamSocket.h */,
 				84D8B5B41D768B6E00752B56 /* LFStreamingBuffer.h */,
 				84D8B5B51D768B6E00752B56 /* LFStreamingBuffer.m */,
 				84D8B5B61D768B6E00752B56 /* LFStreamRTMPSocket.h */,
 				84D8B5B71D768B6E00752B56 /* LFStreamRtmpSocket.m */,
-				84D8B5B81D768B6E00752B56 /* LFStreamSocket.h */,
 				84D8B5B91D768B6E00752B56 /* NSMutableArray+LFAdd.h */,
 				84D8B5BA1D768B6E00752B56 /* NSMutableArray+LFAdd.m */,
 			);
