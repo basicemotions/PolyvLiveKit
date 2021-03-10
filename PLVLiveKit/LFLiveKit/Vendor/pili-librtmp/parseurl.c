@@ -204,6 +204,23 @@ parsehost:
     return TRUE;
 }
 
+
+int X2DEC(char c) {
+    if (c >= '0' && c <= '9') return c - '0';
+    if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+    if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+    return -1;
+}
+
+unsigned int xo2Change(char *input) {
+    char x1 = *input;
+    char x2 = *(input + 1);
+    int num1 = X2DEC(x1);
+    int num2 = X2DEC(x2);
+    if (num1 == -1) return 0;
+    if (num2 == -1) return num1;
+    return num1 * 16 + num2;
+}
 /*
  * Extracts playpath from RTMP URL. playpath is the file part of the
  * URL, i.e. the part that comes after rtmp://host:port/app/
@@ -291,7 +308,7 @@ void PILI_RTMP_ParsePlaypath(AVal *in, AVal *out) {
         }
         if (*p == '%') {
             unsigned int c;
-            sscanf(p + 1, "%02x", &c);
+            c = xo2Change(p + 1);
             *destptr++ = c;
             pplen -= 3;
             p += 3;

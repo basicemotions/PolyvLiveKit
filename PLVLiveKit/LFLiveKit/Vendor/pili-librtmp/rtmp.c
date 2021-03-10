@@ -619,6 +619,24 @@ int RTMP_SetOpt(PILI_RTMP *r, const AVal *opt, AVal *arg, RTMPError *error) {
     return TRUE;
 }
 
+
+int X2DEC(char c) {
+    if (c >= '0' && c <= '9') return c - '0';
+    if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+    if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+    return -1;
+}
+
+unsigned int xo2Change(char *input) {
+    char x1 = *input;
+    char x2 = *(input + 1);
+    int num1 = X2DEC(x1);
+    int num2 = X2DEC(x2);
+    if (num1 == -1) return 0;
+    if (num2 == -1) return num1;
+    return num1 * 16 + num2;
+}
+
 int PILI_RTMP_SetupURL(PILI_RTMP *r, const char *url, RTMPError *error) {
     AVal opt, arg;
     char *p1, *p2, *ptr = strchr(url, ' ');
@@ -664,7 +682,7 @@ int PILI_RTMP_SetupURL(PILI_RTMP *r, const char *url, RTMPError *error) {
                 unsigned int c;
                 if (port < 3)
                     return FALSE;
-                sscanf(p1 + 1, "%02x", &c);
+                c = xo2Change(p1 + 1);
                 *p2++ = c;
                 port -= 3;
                 p1 += 3;
