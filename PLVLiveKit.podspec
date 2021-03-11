@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "ftao" => "fft1026@163.com" }
 
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
 
   s.source       = { :git => "http://git.polyv.net/ios/PolyvLiveKit", :tag => "#{s.version}" }
   
@@ -62,8 +62,8 @@ Pod::Spec.new do |s|
    	ss.dependency 'PLVLiveKit/objects'
     ss.dependency 'PLVLiveKit/GPUImage'
 
-    ss.source_files  = "PLVLiveKit/LFLiveKit/filter/*"
-    ss.public_header_files = "PLVLiveKit/LFLiveKit/filter/*.h"
+    ss.source_files  = "PLVLiveKit/LFLiveKit/capture/filter/*"
+    ss.public_header_files = "PLVLiveKit/LFLiveKit/capture/filter/*.h"
   end
 
   s.subspec 'capture' do |ss|
