@@ -343,10 +343,10 @@
 }
 
 - (void)reloadMirror{
-    if(self.captureDevicePosition == AVCaptureDevicePositionFront){
-        self.videoCamera.horizontallyMirrorFrontFacingCamera = YES;
-    }else{
-        self.videoCamera.horizontallyMirrorFrontFacingCamera = NO;
+    if (self.captureDevicePosition == AVCaptureDevicePositionFront){
+        self.videoCamera.horizontallyMirrorFrontFacingCamera = self.mirror;
+    } else if (self.captureDevicePosition == AVCaptureDevicePositionBack) {
+        self.videoCamera.horizontallyMirrorRearFacingCamera = self.mirror;
     }
 }
 

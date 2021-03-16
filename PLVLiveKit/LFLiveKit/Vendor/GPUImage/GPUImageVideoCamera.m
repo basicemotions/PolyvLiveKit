@@ -953,19 +953,19 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
                 if (_horizontallyMirrorFrontFacingCamera) {
                     switch (_outputImageOrientation) {
                         /// 开启镜像
-                        case UIInterfaceOrientationPortrait:internalRotation = kGPUImageRotateRightFlipVertical; break;
-                        case UIInterfaceOrientationPortraitUpsideDown:internalRotation = kGPUImageRotateRightFlipHorizontal; break;
-                        case UIInterfaceOrientationLandscapeLeft:internalRotation = kGPUImageFlipHorizonal; break;
-                        case UIInterfaceOrientationLandscapeRight:internalRotation = kGPUImageFlipVertical; break;
+                        case UIInterfaceOrientationPortrait:internalRotation = kGPUImageRotateRight; break;
+                        case UIInterfaceOrientationPortraitUpsideDown:internalRotation = kGPUImageRotateLeft; break;
+                        case UIInterfaceOrientationLandscapeLeft:internalRotation = kGPUImageNoRotation; break;
+                        case UIInterfaceOrientationLandscapeRight:internalRotation = kGPUImageRotate180; break;
                         default:internalRotation = kGPUImageNoRotation;
                     }
                 } else {
                     switch (_outputImageOrientation) {
                         /// 关闭镜像
-                        case UIInterfaceOrientationPortrait:internalRotation = kGPUImageRotateRight; break;
-                        case UIInterfaceOrientationPortraitUpsideDown:internalRotation = kGPUImageRotateLeft; break;
-                        case UIInterfaceOrientationLandscapeLeft:internalRotation = kGPUImageNoRotation; break;
-                        case UIInterfaceOrientationLandscapeRight:internalRotation = kGPUImageRotate180; break;
+                        case UIInterfaceOrientationPortrait:internalRotation = kGPUImageRotateRightFlipVertical; break;
+                        case UIInterfaceOrientationPortraitUpsideDown:internalRotation = kGPUImageRotateRightFlipHorizontal; break;
+                        case UIInterfaceOrientationLandscapeLeft:internalRotation = kGPUImageFlipHorizonal; break;
+                        case UIInterfaceOrientationLandscapeRight:internalRotation = kGPUImageFlipVertical; break;
                         default:internalRotation = kGPUImageNoRotation;
                     }
                 }
