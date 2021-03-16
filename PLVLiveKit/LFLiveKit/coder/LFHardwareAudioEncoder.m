@@ -208,7 +208,7 @@ OSStatus inputDataProc(AudioConverterRef inConverter, UInt32 *ioNumberDataPacket
  **/
 - (NSData *)adtsData:(NSInteger)channel rawDataLength:(NSInteger)rawDataLength {
     int adtsLength = 7;
-    char *packet = malloc(sizeof(char) * adtsLength);
+    char *packet = calloc(1, sizeof(char) * adtsLength);
     // Variables Recycled by addADTStoPacket
     int profile = 2;  //AAC LC
     //39=MediaCodecInfo.CodecProfileLevel.AACObjectELD;

@@ -214,7 +214,7 @@ NSString *const kGPUImageHarrisCornerDetectionFragmentShaderString = SHADER_STRI
     
     if (rawImagePixels == NULL)
     {
-        rawImagePixels = (GLubyte *)malloc(imageByteSize);
+        rawImagePixels = (GLubyte *)calloc(1, imageByteSize);
         cornersArray = calloc(512 * 2, sizeof(GLfloat));
     }    
     

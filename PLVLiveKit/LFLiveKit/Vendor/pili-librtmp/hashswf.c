@@ -478,7 +478,7 @@ int RTMP_HashSWF(const char *url, unsigned int *size, unsigned char *hash,
    * These fields must be present in this order. All fields
    * besides URL are fixed size.
    */
-    path = malloc(hpre.av_len + home.av_len + sizeof(DIRSEP ".swfinfo"));
+    path = calloc(1, hpre.av_len + home.av_len + sizeof(DIRSEP ".swfinfo"));
     sprintf(path, "%s%s" DIRSEP ".swfinfo", hpre.av_val, home.av_val);
 
     f = fopen(path, "r+");

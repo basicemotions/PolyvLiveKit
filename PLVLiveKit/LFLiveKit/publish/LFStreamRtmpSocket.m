@@ -374,8 +374,7 @@ Failed:
     NSInteger sps_len = videoFrame.sps.length;
     NSInteger pps_len = videoFrame.pps.length;
 
-    body = (unsigned char *)malloc(rtmpLength);
-    memset(body, 0, rtmpLength);
+    body = (unsigned char *)calloc(1, rtmpLength);
 
     body[iIndex++] = 0x17;
     body[iIndex++] = 0x00;

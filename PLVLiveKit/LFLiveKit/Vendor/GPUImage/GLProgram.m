@@ -118,7 +118,7 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
 		glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &logLength);
 		if (logLength > 0)
 		{
-			GLchar *log = (GLchar *)malloc(logLength);
+            GLchar *log = (GLchar *)calloc(1, logLength);
 			glGetShaderInfoLog(*shader, logLength, &logLength, log);
             if (shader == &vertShader)
             {
@@ -211,7 +211,7 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
 	glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
 	if (logLength > 0)
 	{
-		GLchar *log = (GLchar *)malloc(logLength);
+        GLchar *log = (GLchar *)calloc(1, logLength);
 		glGetProgramInfoLog(program, logLength, &logLength, log);
         self.programLog = [NSString stringWithFormat:@"%s", log];
 		free(log);

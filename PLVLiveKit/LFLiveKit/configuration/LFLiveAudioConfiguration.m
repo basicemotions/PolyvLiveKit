@@ -53,7 +53,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _asc = malloc(2);
+        _asc = calloc(1, 2);
     }
     return self;
 }

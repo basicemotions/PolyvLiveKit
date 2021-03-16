@@ -300,7 +300,7 @@ NSString *const kGPUImageLuminosityFragmentShaderString = SHADER_STRING
         
         if (rawImagePixels == NULL)
         {
-            rawImagePixels = (GLubyte *)malloc(totalNumberOfPixels * 4);
+            rawImagePixels = (GLubyte *)calloc(1, totalNumberOfPixels * 4);
         }
         
         [GPUImageContext useImageProcessingContext];

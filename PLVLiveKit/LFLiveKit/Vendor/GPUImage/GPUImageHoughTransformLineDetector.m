@@ -118,7 +118,7 @@
     
     if (rawImagePixels == NULL)
     {
-        rawImagePixels = (GLubyte *)malloc(imageByteSize);
+        rawImagePixels = (GLubyte *)calloc(1,imageByteSize);
         linesArray = calloc(1024 * 2, sizeof(GLfloat));
     }
     

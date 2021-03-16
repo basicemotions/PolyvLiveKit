@@ -119,8 +119,8 @@ NSString *const kGPUImageHoughAccumulationFBOReadFragmentShaderString = SHADER_S
 - (void)generateLineCoordinates;
 {
     unsigned int imageByteSize = inputTextureSize.width * inputTextureSize.height * 4;
-    rawImagePixels = (GLubyte *)malloc(imageByteSize);
-
+    rawImagePixels = (GLubyte *)calloc(1, imageByteSize);
+    
     maxLinePairsToRender = (inputTextureSize.width * inputTextureSize.height) / MAXLINESCALINGFACTOR;
     lineCoordinates = calloc(maxLinePairsToRender * 8, sizeof(GLfloat));
 }

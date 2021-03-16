@@ -193,7 +193,7 @@ void PILI_RTMP_TLS_Init() {
    * for now.
    */
     gnutls_global_init();
-    RTMP_TLS_ctx = malloc(sizeof(struct tls_ctx));
+    RTMP_TLS_ctx = calloc(1, sizeof(struct tls_ctx));
     gnutls_certificate_allocate_credentials(&RTMP_TLS_ctx->cred);
     gnutls_priority_init(&RTMP_TLS_ctx->prios, "NORMAL", NULL);
     gnutls_certificate_set_x509_trust_file(RTMP_TLS_ctx->cred,
@@ -713,7 +713,7 @@ int PILI_RTMP_SetupURL(PILI_RTMP *r, const char *url, RTMPError *error) {
                     r->Link.port = 1935;
                 }
                 len = domain->av_len + r->Link.app.av_len + sizeof("rtmpte://:65535/");
-                r->Link.tcUrl.av_val = malloc(len);
+                r->Link.tcUrl.av_val = calloc(1, len);
                 r->Link.tcUrl.av_len = snprintf(r->Link.tcUrl.av_val, len,
                                                 "%s://%.*s:%d/%.*s",
                                                 PILI_RTMPProtocolStringsLower[r->Link.protocol],
@@ -748,7 +748,7 @@ static int add_addr_info(PILI_RTMP *r, struct addrinfo *hints, struct addrinfo *
     char *hostname;
     int ret = TRUE;
     if (host->av_val[host->av_len]) {
-        hostname = malloc(host->av_len + 1);
+        hostname = calloc(1, host->av_len + 1);
         memcpy(hostname, host->av_val, host->av_len);
         hostname[host->av_len] = '\0';
     } else {
@@ -1431,7 +1431,7 @@ static int
 
     if (r->Link.rc4keyOut) {
         if (n > sizeof(buf))
-            encrypted = (char *)malloc(n);
+            encrypted = (char *)calloc(1, n);
         else
             encrypted = (char *)buf;
         ptr = encrypted;
@@ -2274,7 +2274,7 @@ static void
     char *tmp;
     if (!(*num & 0x0f))
         *vals = realloc(*vals, (*num + 16) * sizeof(PILI_RTMP_METHOD));
-    tmp = malloc(av->av_len + 1);
+    tmp = calloc(1, av->av_len + 1);
     memcpy(tmp, av->av_val, av->av_len);
     tmp[av->av_len] = '\0';
     (*vals)[*num].num = txn;
@@ -2960,7 +2960,7 @@ int PILI_RTMP_ReadPacket(PILI_RTMP *r, PILI_RTMPPacket *packet) {
 
     /* keep the packet as ref for other packets on this channel */
     if (!r->m_vecChannelsIn[packet->m_nChannel])
-        r->m_vecChannelsIn[packet->m_nChannel] = malloc(sizeof(PILI_RTMPPacket));
+        r->m_vecChannelsIn[packet->m_nChannel] = calloc(1, sizeof(PILI_RTMPPacket));
     memcpy(r->m_vecChannelsIn[packet->m_nChannel], packet, sizeof(PILI_RTMPPacket));
 
     if (RTMPPacket_IsReady(packet)) {
@@ -3235,7 +3235,7 @@ int PILI_RTMP_SendPacket(PILI_RTMP *r, PILI_RTMPPacket *packet, int queue, RTMPE
         int chunks = (nSize + nChunkSize - 1) / nChunkSize;
         if (chunks > 1) {
             tlen = chunks * (cSize + 1) + nSize + hSize;
-            tbuf = malloc(tlen);
+            tbuf = calloc(1, tlen);
             if (!tbuf)
                 return FALSE;
             toff = tbuf;
@@ -3302,7 +3302,7 @@ int PILI_RTMP_SendPacket(PILI_RTMP *r, PILI_RTMPPacket *packet, int queue, RTMPE
     }
 
     if (!r->m_vecChannelsOut[packet->m_nChannel])
-        r->m_vecChannelsOut[packet->m_nChannel] = malloc(sizeof(PILI_RTMPPacket));
+        r->m_vecChannelsOut[packet->m_nChannel] = calloc(1, sizeof(PILI_RTMPPacket));
     memcpy(r->m_vecChannelsOut[packet->m_nChannel], packet, sizeof(PILI_RTMPPacket));
     return TRUE;
 }
@@ -3503,7 +3503,7 @@ static void
 
     /* prep text: hex2bin, multiples of 4 */
     n = (text->av_len + 7) / 8;
-    out = malloc(n * 8);
+    out = calloc(1, n * 8);
     ptr = (unsigned char *)text->av_val;
     v = (uint32_t *)out;
     for (i = 0; i < n; i++) {
@@ -3583,7 +3583,8 @@ static int
 
     if (!r->m_clientID.av_val) {
         r->m_clientID.av_len = hlen;
-        r->m_clientID.av_val = malloc(hlen + 1);
+        r->m_clientID.av_val = calloc(1, hlen + 1);
+
         if (!r->m_clientID.av_val)
             return -1;
         r->m_clientID.av_val[0] = '/';
@@ -3859,7 +3860,7 @@ static int
         if (size + 4 > buflen) {
             /* the extra 4 is for the case of an FLV stream without a last
 	   * prevTagSize (we need extra 4 bytes to append it) */
-            r->m_read.buf = malloc(size + 4);
+            r->m_read.buf = calloc(1, size + 4);
             if (r->m_read.buf == 0) {
                 RTMP_Log(RTMP_LOGERROR, "Couldn't allocate memory!");
                 ret = RTMP_READ_ERROR; /* fatal error */

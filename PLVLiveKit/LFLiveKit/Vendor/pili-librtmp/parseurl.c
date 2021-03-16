@@ -278,7 +278,7 @@ void PILI_RTMP_ParsePlaypath(AVal *in, AVal *out) {
         }
     }
 
-    streamname = (char *)malloc((pplen + 4 + 1) * sizeof(char));
+    streamname = (char *)calloc(1, (pplen + 4 + 1) * sizeof(char));
     if (!streamname)
         return;
 

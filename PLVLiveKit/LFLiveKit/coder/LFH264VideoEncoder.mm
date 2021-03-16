@@ -72,7 +72,7 @@
 
 - (void) initializeNALUnitStartCode {
     NSUInteger naluLength = 4;
-    uint8_t *nalu = (uint8_t*)malloc(naluLength * sizeof(uint8_t));
+    uint8_t *nalu = (uint8_t*)calloc(1, naluLength * sizeof(uint8_t));
     nalu[0] = 0x00;
     nalu[1] = 0x00;
     nalu[2] = 0x00;
