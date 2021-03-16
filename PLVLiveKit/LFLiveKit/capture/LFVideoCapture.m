@@ -55,7 +55,6 @@
         self.beautyLevel = 0.5;
         self.brightLevel = 0.5;
         self.zoomScale = 1.0;
-        self.mirror = YES;
     }
     return self;
 }
@@ -160,6 +159,11 @@
 
 - (void)setMirror:(BOOL)mirror {
     _mirror = mirror;
+    if (self.videoCamera.cameraPosition == AVCaptureDevicePositionBack) {
+        _videoCamera.horizontallyMirrorRearFacingCamera = mirror;
+    } else if (self.videoCamera.cameraPosition == AVCaptureDevicePositionFront) {
+        _videoCamera.horizontallyMirrorFrontFacingCamera = mirror;
+    }
 }
 
 - (void)setBeautyFace:(BOOL)beautyFace{
@@ -339,10 +343,10 @@
 }
 
 - (void)reloadMirror{
-    if(self.mirror && self.captureDevicePosition == AVCaptureDevicePositionFront){
-        self.videoCamera.horizontallyMirrorFrontFacingCamera = YES;
-    }else{
-        self.videoCamera.horizontallyMirrorFrontFacingCamera = NO;
+    if (self.captureDevicePosition == AVCaptureDevicePositionFront){
+        self.videoCamera.horizontallyMirrorFrontFacingCamera = self.mirror;
+    } else if (self.captureDevicePosition == AVCaptureDevicePositionBack) {
+        self.videoCamera.horizontallyMirrorRearFacingCamera = self.mirror;
     }
 }
 
