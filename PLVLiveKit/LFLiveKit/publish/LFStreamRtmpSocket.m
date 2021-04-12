@@ -498,6 +498,9 @@ Failed:
     dispatch_async(self.rtmpSendQueue, ^{
         // add by ftao, 200518, avoid performing this function after calling the _stop function.
         if (self->_rtmp == NULL) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(socketDidError:errorCode:)]) {
+                [self.delegate socketDidError:self errorCode:LFLiveSocketError_GetStreamInfo];
+            }
             return;
         }
         if (self.retryTimes4netWorkBreaken++ < self.reconnectCount && !self.isReconnecting) {
