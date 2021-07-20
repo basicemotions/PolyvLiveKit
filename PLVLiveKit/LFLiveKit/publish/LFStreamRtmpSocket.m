@@ -26,7 +26,7 @@ static const NSInteger RetryTimesMargin = 3;
 #define SAVC(x)    static const AVal av_ ## x = AVC(#x)
 
 static const AVal av_setDataFrame = AVC("@setDataFrame");
-static const AVal av_SDKVersion = AVC("PLVLiveKit 1.2.7");
+static const AVal av_SDKVersion = AVC("PLVLiveKit 1.2.8");
 
 SAVC(onMetaData);
 SAVC(duration);
@@ -67,6 +67,7 @@ SAVC(mp4a);
 @property (nonatomic, assign) BOOL isConnected;
 @property (nonatomic, assign) BOOL isConnecting;
 @property (nonatomic, assign) BOOL isReconnecting;
+@property (nonatomic, assign) BOOL started;
 
 @property (nonatomic, assign) BOOL sendVideoHead;
 @property (nonatomic, assign) BOOL sendAudioHead;
@@ -113,6 +114,7 @@ SAVC(mp4a);
     self.debugInfo.uploadUrl = self.stream.url;
     self.debugInfo.isRtmp = YES;
     if (_isConnecting) return;
+    _started = YES;
     
     _isConnecting = YES;
     if (self.delegate && [self.delegate respondsToSelector:@selector(socketStatus:status:)]) {
@@ -242,6 +244,7 @@ SAVC(mp4a);
 }
 
 - (void)clean {
+    _started = NO;
     _isConnecting = NO;
     _isReconnecting = NO;
     _isSending = NO;
@@ -374,7 +377,8 @@ Failed:
     NSInteger sps_len = videoFrame.sps.length;
     NSInteger pps_len = videoFrame.pps.length;
 
-    body = (unsigned char *)calloc(1, rtmpLength);
+    body = (unsigned char *)malloc(rtmpLength);
+    memset(body, 0, rtmpLength);
 
     body[iIndex++] = 0x17;
     body[iIndex++] = 0x00;
@@ -497,10 +501,7 @@ Failed:
 - (void)reconnect {
     dispatch_async(self.rtmpSendQueue, ^{
         // add by ftao, 200518, avoid performing this function after calling the _stop function.
-        if (self->_rtmp == NULL) {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(socketDidError:errorCode:)]) {
-                [self.delegate socketDidError:self errorCode:LFLiveSocketError_GetStreamInfo];
-            }
+        if (self->_rtmp == NULL && !_started) {
             return;
         }
         if (self.retryTimes4netWorkBreaken++ < self.reconnectCount && !self.isReconnecting) {
