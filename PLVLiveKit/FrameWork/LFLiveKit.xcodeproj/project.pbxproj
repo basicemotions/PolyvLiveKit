@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		12474EF926CA48A800F9B056 /* PLVConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 12474EF726CA48A800F9B056 /* PLVConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12474EFA26CA48A800F9B056 /* PLVConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 12474EF826CA48A800F9B056 /* PLVConsoleLogger.m */; };
 		84358FF41DD1FEB600811FC7 /* GLProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 84358E871DD1FEB500811FC7 /* GLProgram.h */; };
 		84358FF51DD1FEB600811FC7 /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 84358E881DD1FEB500811FC7 /* GLProgram.m */; };
 		84358FF61DD1FEB600811FC7 /* GPUImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 84358E891DD1FEB500811FC7 /* GPUImage.h */; };
@@ -671,6 +673,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12474EF726CA48A800F9B056 /* PLVConsoleLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLVConsoleLogger.h; sourceTree = "<group>"; };
+		12474EF826CA48A800F9B056 /* PLVConsoleLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLVConsoleLogger.m; sourceTree = "<group>"; };
 		6701A26F222F7B6400CE036E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6701A270222F7B6400CE036E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6701A271222F7B6400CE036E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1113,6 +1117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12474EF626CA487D00F9B056 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				12474EF726CA48A800F9B056 /* PLVConsoleLogger.h */,
+				12474EF826CA48A800F9B056 /* PLVConsoleLogger.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		84358E851DD1FEB500811FC7 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1549,6 +1562,7 @@
 				84D8B5A51D768B6E00752B56 /* LFLiveKit.h */,
 				84D8B5A61D768B6E00752B56 /* LFLiveSession.h */,
 				84D8B5A71D768B6E00752B56 /* LFLiveSession.m */,
+				12474EF626CA487D00F9B056 /* Log */,
 				84D8B59B1D768B6E00752B56 /* configuration */,
 				84D8B5841D768B6E00752B56 /* capture */,
 				84D8B5A81D768B6E00752B56 /* objects */,
@@ -1719,6 +1733,7 @@
 				843590C71DD1FEB600811FC7 /* GPUImageOverlayBlendFilter.h in Headers */,
 				84D8B5DA1D768B6E00752B56 /* LFAudioFrame.h in Headers */,
 				8435911B1DD1FEB600811FC7 /* GPUImageThresholdEdgeDetectionFilter.h in Headers */,
+				12474EF926CA48A800F9B056 /* PLVConsoleLogger.h in Headers */,
 				843591111DD1FEB600811FC7 /* GPUImageSubtractBlendFilter.h in Headers */,
 				843590B51DD1FEB600811FC7 /* GPUImageMovie.h in Headers */,
 				843590731DD1FEB600811FC7 /* GPUImageHighlightShadowTintFilter.h in Headers */,
@@ -2345,6 +2360,7 @@
 				8435909C1DD1FEB600811FC7 /* GPUImageLookupFilter.m in Sources */,
 				84D8B5D91D768B6E00752B56 /* LFLiveSession.m in Sources */,
 				843590D01DD1FEB600811FC7 /* GPUImagePixellateFilter.m in Sources */,
+				12474EFA26CA48A800F9B056 /* PLVConsoleLogger.m in Sources */,
 				843590C41DD1FEB600811FC7 /* GPUImageOpeningFilter.m in Sources */,
 				843591081DD1FEB600811FC7 /* GPUImageSolidColorGenerator.m in Sources */,
 				843591181DD1FEB600811FC7 /* GPUImageTextureOutput.m in Sources */,

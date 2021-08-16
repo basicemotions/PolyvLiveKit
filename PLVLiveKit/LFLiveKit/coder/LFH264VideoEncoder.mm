@@ -12,6 +12,7 @@
 #import "LFAVEncoder.h"
 #import "LFH264VideoEncoder.h"
 #import "LFVideoFrame.h"
+#import "PLVConsoleLogger.h"
 
 @interface LFH264VideoEncoder() {
     FILE *fp;
@@ -43,6 +44,7 @@
 - (instancetype)initWithVideoStreamConfiguration:(LFLiveVideoConfiguration *)configuration {
     if (self = [super init]) {
         NSLog(@"USE LF264VideoEncoder");
+        PLVLOG_INFO(@"使用软编码器");
         _configuration = configuration;
         [self initCompressionSession];
     }
