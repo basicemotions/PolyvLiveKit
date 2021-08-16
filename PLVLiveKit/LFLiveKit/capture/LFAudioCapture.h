@@ -18,6 +18,11 @@ extern NSString *_Nullable const LFAudioComponentFailedToCreateNotification;
 /** LFAudioCapture callback audioData */
 @protocol LFAudioCaptureDelegate <NSObject>
 - (void)captureOutput:(nullable LFAudioCapture *)capture audioData:(nullable NSData*)audioData;
+
+/// 音频会话线路改变回调
+/// @param capture 音频采集模块
+/// @param audioSessionRouteChangeReason 音频会话线路改变类型
+- (void)captureOutput:(nullable LFAudioCapture *)capture audioSessionRouteDidChange:(AVAudioSessionRouteChangeReason)audioSessionRouteChangeReason;
 @end
 
 

@@ -49,6 +49,11 @@ typedef NS_ENUM(NSInteger,LFLiveCaptureTypeMask) {
 - (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug *)debugInfo;
 /** callback socket errorcode */
 - (void)liveSession:(nullable LFLiveSession *)session errorCode:(LFLiveSocketErrorCode)errorCode;
+
+/// 音频会话线路改变回调
+/// @param session LFLiveSession
+/// @param audioSessionRouteChangeReason 音频会话线路改变类型
+- (void)liveSession:(nullable LFLiveSession *)session audioSessionRouteDidChange:(AVAudioSessionRouteChangeReason)audioSessionRouteChangeReason;
 @end
 
 @class LFLiveStreamInfo;

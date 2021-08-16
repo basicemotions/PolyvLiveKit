@@ -135,6 +135,13 @@
     if (self.uploading) [self.audioEncoder encodeAudioData:audioData timeStamp:NOW];
 }
 
+- (void)captureOutput:(nullable LFAudioCapture *)capture audioSessionRouteDidChange:(AVAudioSessionRouteChangeReason)audioSessionRouteChangeReason {
+    if (self.delegate &&
+        [self.delegate respondsToSelector:@selector(liveSession:audioSessionRouteDidChange:)]) {
+        [self.delegate liveSession:self audioSessionRouteDidChange:audioSessionRouteChangeReason];
+    }
+}
+
 - (void)captureOutput:(nullable LFVideoCapture *)capture pixelBuffer:(nullable CVPixelBufferRef)pixelBuffer {
     if (self.uploading) [self.videoEncoder encodeVideoData:pixelBuffer timeStamp:NOW];
 }

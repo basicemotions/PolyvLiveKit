@@ -172,6 +172,11 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
     if (input.portType == AVAudioSessionPortHeadsetMic) {
 
     }
+    
+    if (self.delegate &&
+        [self.delegate respondsToSelector:@selector(captureOutput:audioSessionRouteDidChange:)]) {
+        [self.delegate captureOutput:self audioSessionRouteDidChange:reason];
+    }
 }
 
 - (void)handleInterruption:(NSNotification *)notification {
