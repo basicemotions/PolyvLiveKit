@@ -7,6 +7,7 @@
 //
 
 #import "LFHardwareAudioEncoder.h"
+#import "PLVConsoleLogger.h"
 
 @interface LFHardwareAudioEncoder (){
     AudioConverterRef m_converter;
@@ -46,6 +47,7 @@
 }
 
 - (void)dealloc {
+    PLVLOG_INFO(@"音频编码器释放");
     if (aacBuf) free(aacBuf);
     if (leftBuf) free(leftBuf);
 }
@@ -181,6 +183,8 @@
     if(result == noErr) {
         result = AudioConverterSetProperty(m_converter, kAudioConverterEncodeBitRate, propSize, &outputBitrate);
     }
+    
+    PLVLOG_INFO(@"创建音频编码器");
     
     return YES;
 }

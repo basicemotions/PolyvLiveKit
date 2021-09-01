@@ -7,6 +7,7 @@
 //
 #import "LFHardwareVideoEncoder.h"
 #import <VideoToolbox/VideoToolbox.h>
+#import "PLVConsoleLogger.h"
 
 @interface LFHardwareVideoEncoder (){
     VTCompressionSessionRef compressionSession;
@@ -30,6 +31,7 @@
 - (instancetype)initWithVideoStreamConfiguration:(LFLiveVideoConfiguration *)configuration {
     if (self = [super init]) {
         NSLog(@"USE LFHardwareVideoEncoder");
+        PLVLOG_INFO(@"使用硬编码器");
         _configuration = configuration;
         [self resetCompressionSession];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
@@ -44,6 +46,7 @@
 }
 
 - (void)resetCompressionSession {
+    PLVLOG_INFO(@"重设硬编码器");
     if (compressionSession) {
         VTCompressionSessionCompleteFrames(compressionSession, kCMTimeInvalid);
 
@@ -54,6 +57,7 @@
 
     OSStatus status = VTCompressionSessionCreate(NULL, _configuration.videoSize.width, _configuration.videoSize.height, kCMVideoCodecType_H264, NULL, NULL, NULL, VideoCompressonOutputCallback, (__bridge void *)self, &compressionSession);
     if (status != noErr) {
+        PLVLOG_ERROR(@"硬编码器创建失败");
         return;
     }
 
@@ -91,6 +95,7 @@
         VTCompressionSessionInvalidate(compressionSession);
         CFRelease(compressionSession);
         compressionSession = NULL;
+        PLVLOG_INFO(@"硬编码器释放");
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

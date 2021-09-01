@@ -7,6 +7,7 @@
 //
 
 #import "LFStreamRTMPSocket.h"
+#import "PLVConsoleLogger.h"
 
 #if __has_include(<pili-librtmp/rtmp.h>)
 #import <pili-librtmp/rtmp.h>
@@ -265,6 +266,7 @@ SAVC(mp4a);
     //设置URL
     if (PILI_RTMP_SetupURL(_rtmp, push_url, &_error) == FALSE) {
         //log(LOG_ERR, "RTMP_SetupURL() failed!");
+        PLVLOG_ERROR(@"初始化RTMP推流失败");
         goto Failed;
     }
 
@@ -279,11 +281,13 @@ SAVC(mp4a);
 
     //连接服务器
     if (PILI_RTMP_Connect(_rtmp, NULL, &_error) == FALSE) {
+        PLVLOG_ERROR(@"RTMP连接服务器失败");
         goto Failed;
     }
 
     //连接流
     if (PILI_RTMP_ConnectStream(_rtmp, 0, &_error) == FALSE) {
+        PLVLOG_ERROR(@"RTMP连接流失败");
         goto Failed;
     }
 
@@ -292,6 +296,8 @@ SAVC(mp4a);
     }
 
     [self sendMetaData];
+    
+    PLVLOG_ERROR(@"初始化RTMP推流器成功");
 
     _isConnected = YES;
     _isConnecting = NO;
