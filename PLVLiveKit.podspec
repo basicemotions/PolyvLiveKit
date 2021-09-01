@@ -46,6 +46,11 @@ Pod::Spec.new do |s|
   end
 
   # ---------- Subfiles
+  s.subspec 'Log' do |ss|
+    ss.source_files  = "PLVLiveKit/LFLiveKit/Log/*"
+    ss.public_header_files = "PLVLiveKit/LFLiveKit/Log/*.h"
+  end
+
   s.subspec 'configuration' do |ss|
     ss.source_files  = "PLVLiveKit/LFLiveKit/configuration/*"
     ss.public_header_files = "PLVLiveKit/LFLiveKit/configuration/*.h"
@@ -71,6 +76,7 @@ Pod::Spec.new do |s|
     ss.public_header_files = "PLVLiveKit/LFLiveKit/capture/*.h"
     
     ss.dependency 'PLVLiveKit/filter'
+    ss.dependency 'PLVLiveKit/Log'
   end
 
   s.subspec 'coder' do |ss|
@@ -81,6 +87,7 @@ Pod::Spec.new do |s|
     # ss.public_header_files  = ["PLVLiveKit/LFLiveKit/coder/**/*.h", 'PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h']
     
     ss.dependency 'PLVLiveKit/objects' 
+    ss.dependency 'PLVLiveKit/Log'
   end
 
   s.subspec 'publish' do |ss|
@@ -89,6 +96,7 @@ Pod::Spec.new do |s|
 
     ss.dependency 'PLVLiveKit/objects'
     ss.dependency 'PLVLiveKit/pili-librtmp'
+    ss.dependency 'PLVLiveKit/Log'
   end
 
 end
