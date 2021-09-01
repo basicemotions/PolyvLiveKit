@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PLVConsoleLogger : NSObject
 
-///打印等级
+///打印等级，默认关闭所有打印
 @property (nonatomic, assign) PLVConsoleLogLevel logLevel;
 
 + (instancetype)defaultLogger;
