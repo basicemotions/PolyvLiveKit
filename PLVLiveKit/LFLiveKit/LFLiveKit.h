@@ -17,7 +17,7 @@
 #import "LFLiveStreamInfo.h"
 #import "LFVideoFrame.h"
 #import "LFLiveDebug.h"
-#import "PLVConsoleLogger.h"
+#import "PLVLFConsoleLogger.h"
 
 #endif
 

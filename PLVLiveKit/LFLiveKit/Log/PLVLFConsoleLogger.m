@@ -1,22 +1,22 @@
 //
-//  PLVConsoleLogger.m
+//  PLVLFConsoleLogger.m
 //  LFLiveKit
 //
 //  Created by POLYV-UX on 2021/8/16.
 //  Copyright © 2021 admin. All rights reserved.
 //
 
-#import "PLVConsoleLogger.h"
+#import "PLVLFConsoleLogger.h"
 
-@implementation PLVConsoleLogger
+@implementation PLVLFConsoleLogger
 
 #pragma mark - Public
 
 + (instancetype)defaultLogger {
-    static PLVConsoleLogger *logger = nil;
+    static PLVLFConsoleLogger *logger = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        logger = [[PLVConsoleLogger alloc] init];
+        logger = [[PLVLFConsoleLogger alloc] init];
     });
     return logger;
 }

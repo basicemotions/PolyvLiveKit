@@ -9,7 +9,7 @@
 #import "LFAudioCapture.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
-#import "PLVConsoleLogger.h"
+#import "PLVLFConsoleLogger.h"
 
 NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentFailedToCreateNotification";
 
@@ -93,14 +93,14 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
         
         [session setActive:YES error:nil];
         
-        PLVLOG_INFO(@"音频会话创建成功！");
+        PLVLFLOG_INFO(@"音频会话创建成功！");
     }
     return self;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    PLVLOG_INFO(@"音频采集模块释放！");
+    PLVLFLOG_INFO(@"音频采集模块释放！");
     dispatch_sync(self.taskQueue, ^{
         if (self.componetInstance) {
             self.isRunning = NO;
@@ -120,7 +120,7 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
         dispatch_async(self.taskQueue, ^{
             self.isRunning = YES;
             NSLog(@"MicrophoneSource: startRunning");
-            PLVLOG_INFO(@"开启音频采集");
+            PLVLFLOG_INFO(@"开启音频采集");
             [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker | AVAudioSessionCategoryOptionInterruptSpokenAudioAndMixWithOthers | AVAudioSessionCategoryOptionAllowBluetooth error:nil];
             AudioOutputUnitStart(self.componetInstance);
         });
@@ -128,7 +128,7 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
         dispatch_sync(self.taskQueue, ^{
             self.isRunning = NO;
             NSLog(@"MicrophoneSource: stopRunning");
-            PLVLOG_INFO(@"停止音频采集");
+            PLVLFLOG_INFO(@"停止音频采集");
             AudioOutputUnitStop(self.componetInstance);
         });
     }
@@ -137,7 +137,7 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
 #pragma mark -- CustomMethod
 - (void)handleAudioComponentCreationFailure {
     dispatch_async(dispatch_get_main_queue(), ^{
-        PLVLOG_ERROR(@"音频会话创建失败！");
+        PLVLFLOG_ERROR(@"音频会话创建失败！");
         [[NSNotificationCenter defaultCenter] postNotificationName:LFAudioComponentFailedToCreateNotification object:nil];
     });
 }
@@ -173,7 +173,7 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
         break;
     }
     NSLog(@"handleRouteChange reason is %@", seccReason);
-    PLVLOG_INFO(@"音频会话线路改变！");
+    PLVLFLOG_INFO(@"音频会话线路改变！");
 
     AVAudioSessionPortDescription *input = [[session.currentRoute.inputs count] ? session.currentRoute.inputs : nil objectAtIndex:0];
     if (input.portType == AVAudioSessionPortHeadsetMic) {
@@ -193,18 +193,18 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
         //Posted when an audio interruption occurs.
         reason = [[[notification userInfo] objectForKey:AVAudioSessionInterruptionTypeKey] integerValue];
         if (reason == AVAudioSessionInterruptionTypeBegan) {
-            PLVLOG_INFO(@"音频中断开始");
+            PLVLFLOG_INFO(@"音频中断开始");
             if (self.isRunning) {
                 dispatch_sync(self.taskQueue, ^{
                     NSLog(@"MicrophoneSource: stopRunning");
-                    PLVLOG_INFO(@"停止音频采集");
+                    PLVLFLOG_INFO(@"停止音频采集");
                     AudioOutputUnitStop(self.componetInstance);
                 });
             }
         }
 
         if (reason == AVAudioSessionInterruptionTypeEnded) {
-            PLVLOG_INFO(@"音频中断结束");
+            PLVLFLOG_INFO(@"音频中断结束");
             reasonStr = @"AVAudioSessionInterruptionTypeEnded";
             NSNumber *seccondReason = [[notification userInfo] objectForKey:AVAudioSessionInterruptionOptionKey];
             switch ([seccondReason integerValue]) {
@@ -212,7 +212,7 @@ NSString *const LFAudioComponentFailedToCreateNotification = @"LFAudioComponentF
                 if (self.isRunning) {
                     dispatch_async(self.taskQueue, ^{
                         NSLog(@"MicrophoneSource: startRunning");
-                        PLVLOG_INFO(@"开启音频采集");
+                        PLVLFLOG_INFO(@"开启音频采集");
                         AudioOutputUnitStart(self.componetInstance);
                     });
                 }

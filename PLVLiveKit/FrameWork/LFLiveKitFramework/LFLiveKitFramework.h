@@ -24,5 +24,5 @@ FOUNDATION_EXPORT const unsigned char LFLiveKitFrameworkVersionString[];
 #import <LFLiveKit/LFLiveStreamInfo.h>
 #import <LFLiveKit/LFVideoFrame.h>
 #import <LFLiveKit/LFLiveDebug.h>
-#import <LFLiveKit/PLVConsoleLogger.h>
+#import <LFLiveKit/PLVLFConsoleLogger.h>
 

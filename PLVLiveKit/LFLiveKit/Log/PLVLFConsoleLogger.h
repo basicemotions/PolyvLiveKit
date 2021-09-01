@@ -1,5 +1,5 @@
 //
-//  PLVConsoleLogger.h
+//  PLVLFConsoleLogger.h
 //  LFLiveKit
 //
 //  Created by POLYV-UX on 2021/8/16.
@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, PLVConsoleLogLevel) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PLVConsoleLogger : NSObject
+@interface PLVLFConsoleLogger : NSObject
 
 ///打印等级，默认关闭所有打印
 @property (nonatomic, assign) PLVConsoleLogLevel logLevel;
@@ -43,19 +43,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-#define PLVLOG_ERROR( frmt, ...) PLVLOG( nil, PLVConsoleLogTypeERROR , frmt , ## __VA_ARGS__)
-#define PLVLOG_WARN( frmt, ...) PLVLOG( nil, PLVConsoleLogTypeWARN , frmt , ## __VA_ARGS__)
-#define PLVLOG_DEBUG( frmt, ...) PLVLOG( nil, PLVConsoleLogTypeDEBUG , frmt , ## __VA_ARGS__)
-#define PLVLOG_INFO( frmt, ...) PLVLOG( nil, PLVConsoleLogTypeINFO , frmt , ## __VA_ARGS__)
+#define PLVLFLOG_ERROR( frmt, ...) PLVLFLOG( nil, PLVConsoleLogTypeERROR , frmt , ## __VA_ARGS__)
+#define PLVLFLOG_WARN( frmt, ...) PLVLFLOG( nil, PLVConsoleLogTypeWARN , frmt , ## __VA_ARGS__)
+#define PLVLFLOG_DEBUG( frmt, ...) PLVLFLOG( nil, PLVConsoleLogTypeDEBUG , frmt , ## __VA_ARGS__)
+#define PLVLFLOG_INFO( frmt, ...) PLVLFLOG( nil, PLVConsoleLogTypeINFO , frmt , ## __VA_ARGS__)
 
-#define PLV_NORMAL_LOG_ERROR( module, frmt, ...) PLVLOG( module, PLVConsoleLogTypeERROR , frmt , ## __VA_ARGS__)
-#define PLV_NORMAL_LOG_WARN( module, frmt, ...) PLVLOG( module, PLVConsoleLogTypeWARN , frmt , ## __VA_ARGS__)
-#define PLV_NORMAL_LOG_DEBUG( module, frmt, ...) PLVLOG( module, PLVConsoleLogTypeDEBUG , frmt , ## __VA_ARGS__)
-#define PLV_NORMAL_LOG_INFO( module, frmt, ...) PLVLOG( module, PLVConsoleLogTypeINFO , frmt , ## __VA_ARGS__)
+#define PLVLF_NORMAL_LOG_ERROR( module, frmt, ...) PLVLFLOG( module, PLVConsoleLogTypeERROR , frmt , ## __VA_ARGS__)
+#define PLVLF_NORMAL_LOG_WARN( module, frmt, ...) PLVLFLOG( module, PLVConsoleLogTypeWARN , frmt , ## __VA_ARGS__)
+#define PLVLF_NORMAL_LOG_DEBUG( module, frmt, ...) PLVLFLOG( module, PLVConsoleLogTypeDEBUG , frmt , ## __VA_ARGS__)
+#define PLVLF_NORMAL_LOG_INFO( module, frmt, ...) PLVLFLOG( module, PLVConsoleLogTypeINFO , frmt , ## __VA_ARGS__)
 
-#define PLVLOG(module, logType, frmt, ...) \
+#define PLVLFLOG(module, logType, frmt, ...) \
 { \
-    [[PLVConsoleLogger defaultLogger] logWithModule : module \
+    [[PLVLFConsoleLogger defaultLogger] logWithModule : module \
                                         type : logType \
                                           format : (frmt), ## __VA_ARGS__]; \
 }

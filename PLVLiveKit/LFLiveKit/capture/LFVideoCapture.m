@@ -9,7 +9,7 @@
 #import "LFVideoCapture.h"
 #import "LFGPUImageBeautyFilter.h"
 #import "LFGPUImageEmptyFilter.h"
-#import "PLVConsoleLogger.h"
+#import "PLVLFConsoleLogger.h"
 
 #if __has_include(<GPUImage/GPUImage.h>)
 #import <GPUImage/GPUImage.h>
@@ -61,7 +61,7 @@
 }
 
 - (void)dealloc {
-    PLVLOG_INFO(@"视频采集模块释放");
+    PLVLFLOG_INFO(@"视频采集模块释放");
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_videoCamera stopCameraCapture];
@@ -80,7 +80,7 @@
         _videoCamera.horizontallyMirrorFrontFacingCamera = NO;
         _videoCamera.horizontallyMirrorRearFacingCamera = NO;
         _videoCamera.frameRate = (int32_t)_configuration.videoFrameRate;
-        PLVLOG_INFO(@"视频会话创建");
+        PLVLFLOG_INFO(@"视频会话创建");
     }
     return _videoCamera;
 }
@@ -92,13 +92,13 @@
     if (!_running) {
         [UIApplication sharedApplication].idleTimerDisabled = NO;
         [self.videoCamera stopCameraCapture];
-        PLVLOG_INFO(@"停止视频采集");
+        PLVLFLOG_INFO(@"停止视频采集");
         if(self.saveLocalVideo) [self.movieWriter finishRecording];
     } else {
         [UIApplication sharedApplication].idleTimerDisabled = YES;
         [self reloadFilter];
         [self.videoCamera startCameraCapture];
-        PLVLOG_INFO(@"开启视频采集");
+        PLVLFLOG_INFO(@"开启视频采集");
         if(self.saveLocalVideo) [self.movieWriter startRecording];
     }
 }
@@ -148,12 +148,12 @@
                 ret = (self.videoCamera.inputCamera.torchMode == AVCaptureTorchModeOn);
             } else {
                 NSLog(@"Error while locking device for torch: %@", err);
-                PLVLOG_ERROR(@"闪光灯设备不存在");
+                PLVLFLOG_ERROR(@"闪光灯设备不存在");
                 ret = false;
             }
         } else {
             NSLog(@"Torch not available in current camera input");
-            PLVLOG_ERROR(@"闪光灯设备不合法");
+            PLVLFLOG_ERROR(@"闪光灯设备不合法");
         }
     }
     [session commitConfiguration];
@@ -362,7 +362,7 @@
 - (void)didEnterBackground:(NSNotification *)notification {
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [self.videoCamera pauseCameraCapture];
-    PLVLOG_INFO(@"暂停视频采集");
+    PLVLFLOG_INFO(@"暂停视频采集");
     runSynchronouslyOnVideoProcessingQueue(^{
         glFinish();
     });
@@ -370,7 +370,7 @@
 
 - (void)willEnterForeground:(NSNotification *)notification {
     [self.videoCamera resumeCameraCapture];
-    PLVLOG_INFO(@"恢复视频采集");
+    PLVLFLOG_INFO(@"恢复视频采集");
     [UIApplication sharedApplication].idleTimerDisabled = YES;
 }
 
