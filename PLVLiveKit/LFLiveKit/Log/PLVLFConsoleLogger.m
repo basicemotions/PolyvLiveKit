@@ -21,7 +21,7 @@
     return logger;
 }
 
-- (void)logWithModule:(NSString *)module type:(PLVConsoleLogType)type format:(NSString *)frmt, ... {
+- (void)logWithModule:(NSString *)module type:(PLVLFConsoleLogType)type format:(NSString *)frmt, ... {
     if (!(type & self.logLevel)) {
         return;
     }
@@ -41,16 +41,16 @@
 
 #pragma mark - Private
 
-- (NSString *)stringWithLogType:(PLVConsoleLogType)type {
+- (NSString *)stringWithLogType:(PLVLFConsoleLogType)type {
     switch (type) {
-        case PLVConsoleLogTypeERROR:
-            return @"[ERROR]";
-        case PLVConsoleLogTypeWARN:
-            return @"[WARN]";
-        case PLVConsoleLogTypeDEBUG:
-            return @"[DEBUG]";
-        case PLVConsoleLogTypeINFO:
-            return @"[INFO]";
+        case PLVLFConsoleLogTypeERROR:
+            return @"[PLVLF_ERROR]";
+        case PLVLFConsoleLogTypeWARN:
+            return @"[PLVLF_WARN]";
+        case PLVLFConsoleLogTypeDEBUG:
+            return @"[PLVLF_DEBUG]";
+        case PLVLFConsoleLogTypeINFO:
+            return @"[PLVLF_INFO]";
         default:
             return @"";
     }
