@@ -24,6 +24,8 @@
 /* Begin PBXBuildFile section */
 		12474EF926CA48A800F9B056 /* PLVConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 12474EF726CA48A800F9B056 /* PLVConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12474EFA26CA48A800F9B056 /* PLVConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 12474EF826CA48A800F9B056 /* PLVConsoleLogger.m */; };
+		12F6E13826DF30C100F019DF /* PLVConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 12474EF726CA48A800F9B056 /* PLVConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12F6E13F26DF30C700F019DF /* PLVConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 12474EF826CA48A800F9B056 /* PLVConsoleLogger.m */; };
 		84358FF41DD1FEB600811FC7 /* GLProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 84358E871DD1FEB500811FC7 /* GLProgram.h */; };
 		84358FF51DD1FEB600811FC7 /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 84358E881DD1FEB500811FC7 /* GLProgram.m */; };
 		84358FF61DD1FEB600811FC7 /* GPUImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 84358E891DD1FEB500811FC7 /* GPUImage.h */; };
@@ -660,6 +662,7 @@
 		84D8B5E81D768B6E00752B56 /* LFStreamSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D8B5B81D768B6E00752B56 /* LFStreamSocket.h */; };
 		84D8B5E91D768B6E00752B56 /* NSMutableArray+LFAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D8B5B91D768B6E00752B56 /* NSMutableArray+LFAdd.h */; };
 		84D8B5EA1D768B6E00752B56 /* NSMutableArray+LFAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B5BA1D768B6E00752B56 /* NSMutableArray+LFAdd.m */; };
+		FAB06F4873BF40E8D81DD036 /* Pods_rtmp_LFLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF04099F0FEFD415071E65E /* Pods_rtmp_LFLiveKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -675,6 +678,7 @@
 /* Begin PBXFileReference section */
 		12474EF726CA48A800F9B056 /* PLVConsoleLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLVConsoleLogger.h; sourceTree = "<group>"; };
 		12474EF826CA48A800F9B056 /* PLVConsoleLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLVConsoleLogger.m; sourceTree = "<group>"; };
+		32655E1F31D86AEE0BF4F53B /* Pods-rtmp-LFLiveKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rtmp-LFLiveKit.release.xcconfig"; path = "Target Support Files/Pods-rtmp-LFLiveKit/Pods-rtmp-LFLiveKit.release.xcconfig"; sourceTree = "<group>"; };
 		6701A26F222F7B6400CE036E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6701A270222F7B6400CE036E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6701A271222F7B6400CE036E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1097,6 +1101,8 @@
 		84D8B5B81D768B6E00752B56 /* LFStreamSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFStreamSocket.h; sourceTree = "<group>"; };
 		84D8B5B91D768B6E00752B56 /* NSMutableArray+LFAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+LFAdd.h"; sourceTree = "<group>"; };
 		84D8B5BA1D768B6E00752B56 /* NSMutableArray+LFAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+LFAdd.m"; sourceTree = "<group>"; };
+		9A37CC140F7508CA336AE17E /* Pods-rtmp-LFLiveKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rtmp-LFLiveKit.debug.xcconfig"; path = "Target Support Files/Pods-rtmp-LFLiveKit/Pods-rtmp-LFLiveKit.debug.xcconfig"; sourceTree = "<group>"; };
+		AAF04099F0FEFD415071E65E /* Pods_rtmp_LFLiveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rtmp_LFLiveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1111,6 +1117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB06F4873BF40E8D81DD036 /* Pods_rtmp_LFLiveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,6 +1131,16 @@
 				12474EF826CA48A800F9B056 /* PLVConsoleLogger.m */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		4A0C8666F2A29272D94AC959 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9A37CC140F7508CA336AE17E /* Pods-rtmp-LFLiveKit.debug.xcconfig */,
+				32655E1F31D86AEE0BF4F53B /* Pods-rtmp-LFLiveKit.release.xcconfig */,
+			);
+			name = Pods;
+			path = "../../../polyv-ios-rtmp-demo/PolyvRtmpDemo/Pods";
 			sourceTree = "<group>";
 		};
 		84358E851DD1FEB500811FC7 /* Vendor */ = {
@@ -1544,6 +1561,7 @@
 				8495F66C1DB8F14600542124 /* LFLiveKitFramework */,
 				84D8B3911D7574D600752B56 /* Products */,
 				9ABACAFFC334034AA0115426 /* Frameworks */,
+				4A0C8666F2A29272D94AC959 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1680,6 +1698,7 @@
 				6701A272222F7B6500CE036E /* AVFoundation.framework */,
 				6701A270222F7B6400CE036E /* AudioToolbox.framework */,
 				6701A274222F7B6500CE036E /* VideoToolbox.framework */,
+				AAF04099F0FEFD415071E65E /* Pods_rtmp_LFLiveKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1698,6 +1717,7 @@
 				8495F6841DB8F1EE00542124 /* LFAudioFrame.h in Headers */,
 				8495F67F1DB8F1EE00542124 /* LFLiveVideoConfiguration.h in Headers */,
 				8495F67E1DB8F1EE00542124 /* LFLiveAudioConfiguration.h in Headers */,
+				12F6E13826DF30C100F019DF /* PLVConsoleLogger.h in Headers */,
 				8495F6831DB8F1EE00542124 /* LFLiveSession.h in Headers */,
 				8495F66F1DB8F14600542124 /* LFLiveKitFramework.h in Headers */,
 				8495F6731DB8F1EE00542124 /* LFAudioCapture.h in Headers */,
@@ -1964,6 +1984,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D8B3981D7574D600752B56 /* Build configuration list for PBXNativeTarget "LFLiveKit" */;
 			buildPhases = (
+				BAD17490086AA105887DCD15 /* [CP] Check Pods Manifest.lock */,
 				84D8B38B1D7574D600752B56 /* Sources */,
 				84D8B38C1D7574D600752B56 /* Frameworks */,
 				84D8B38D1D7574D600752B56 /* Headers */,
@@ -2056,6 +2077,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"${env}\"";
+		};
+		BAD17490086AA105887DCD15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-rtmp-LFLiveKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2153,6 +2196,7 @@
 				843591BC1DD20A7F00811FC7 /* GPUImageLinearBurnBlendFilter.m in Sources */,
 				843591BD1DD20A7F00811FC7 /* GPUImageLineGenerator.m in Sources */,
 				843591BE1DD20A7F00811FC7 /* GPUImageLocalBinaryPatternFilter.m in Sources */,
+				12F6E13F26DF30C700F019DF /* PLVConsoleLogger.m in Sources */,
 				843591BF1DD20A7F00811FC7 /* GPUImageLookupFilter.m in Sources */,
 				843591C01DD20A7F00811FC7 /* GPUImageLowPassFilter.m in Sources */,
 				843591C11DD20A7F00811FC7 /* GPUImageLuminanceRangeFilter.m in Sources */,
@@ -2644,6 +2688,7 @@
 		};
 		84D8B3991D7574D600752B56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A37CC140F7508CA336AE17E /* Pods-rtmp-LFLiveKit.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2668,6 +2713,7 @@
 		};
 		84D8B39A1D7574D600752B56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32655E1F31D86AEE0BF4F53B /* Pods-rtmp-LFLiveKit.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
