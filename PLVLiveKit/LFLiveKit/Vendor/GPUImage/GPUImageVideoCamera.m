@@ -340,7 +340,14 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
     if (![_captureSession isRunning])
 	{
         startingCaptureTime = [NSDate date];
-		[_captureSession startRunning];
+
+        __weak typeof(self) weakSelf = self;
+
+        dispatch_async(cameraProcessingQueue, ^{
+            __strong __typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf->_captureSession startRunning];
+        });
+
 	};
 }
 
@@ -348,7 +355,13 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
 {
     if ([_captureSession isRunning])
     {
-        [_captureSession stopRunning];
+        __weak typeof(self) weakSelf = self;
+
+        dispatch_async(cameraProcessingQueue, ^{
+            __strong __typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf->_captureSession stopRunning];
+        });
+
     }
 }
 
